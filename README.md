@@ -34,7 +34,7 @@ Copyright (C) 2018  Aamir Sayid (aamir.sayid@gmail.com)
 
 ## © 2018 Aamir Sayid
 
-## Installation, technical support, maintenance, and customization service available. Contact: 
+## Installation, training, technical support, maintenance, and customization service for Prawo is available. Contact: 
 #### aamir.sayid@gmail.com
 #### Phone: +91 - 9811 44 2335
 #### www.aamirsayid.com

@@ -20,7 +20,7 @@
           <tbody>
           <% @lawsuits.each do |lawsuit| %>
             <tr>
-              <td><%= link_to lawsuit.case_number, lawsuit_details_path(lawsuit) %></td>
+              <td><%= link_to lawsuit.case_number, my_portal_lawsuits_details_path(lawsuit) %></td>
               <td><%= lawsuit.case_type %></td>
               <td><%= lawsuit.opposite_party %></td>
               <td><%= lawsuit.court_name %></td>
