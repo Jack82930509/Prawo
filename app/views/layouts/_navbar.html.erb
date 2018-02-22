@@ -29,18 +29,38 @@
           <% end %>
 
         <% end %>
+
+        <% if customer_signed_in? %>
+          <li><%= link_to 'Profile', my_portal_index_path %></li>
+          <li><%= link_to 'Lawsuits', my_portal_lawsuits_manage_path %></li>
+          <li><%= link_to 'Fees', my_portal_fees_path %></li>
+        <% end %>
+
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Help', help_path %></li>
+
+        <% if !user_signed_in? && !customer_signed_in? %>
+
+          <li><%= link_to 'Staff Login', new_user_session_path %></li>
+          <li><%= link_to 'Client Login', new_customer_session_path %></li>
+
+        <% end %>
+
 
         <% if user_signed_in? %>
 
           <li><a><%= current_user.name %></a></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
 
-        <% else %>
+        <% end %>
 
-          <li><%= link_to 'Login', new_user_session_path %></li>
+
+        <% if customer_signed_in? %>
+
+          <li><a><%= current_customer.client.name %></a></li>
+          <li><%= link_to 'Logout', destroy_customer_session_path, method: :delete %></li>
 
         <% end %>
       </ul>

@@ -1,0 +1,53 @@
+<% provide(:title, "View Fees") %>
+<div class="row">
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">View Fees</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover table-striped">
+          <thead>
+          <tr>
+            <th>Fee ID</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Details / Remarks</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @fees.each do |fee| %>
+            <tr>
+              <td><%= fee.id %></td>
+              <td><%= time_tag fee.created_at %></td>
+              <td><%= number_to_currency fee.amount %></td>
+              <td><%= fee.details %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <hr />
+        <div class="flickr_pagination">
+          <%= will_paginate @fees %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Information</h3>
+      </div>
+      <div class="panel-body">
+        <h3>
+          <strong>
+            TOTAL FEES<br />
+            <hr />
+            <%= number_to_currency @total_fees %>
+          </strong>
+        </h3>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>

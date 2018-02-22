@@ -21,8 +21,19 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
 
+    alphanumeric_series = (('a'..'z').to_a) + ((1..9).to_a) + (('A'..'Z').to_a)
+    shuffled_series = alphanumeric_series.shuffle
+    temporary_password = shuffled_series[0..9].join
+
     if @client.save
-      flash[:notice] = "Client #{@client.name} created successfully."
+
+      @customer = Customer.new(email: @client.email)
+      @customer.password = temporary_password
+      @customer.password_confirmation = temporary_password
+      @customer.client = @client
+      @customer.save
+
+      flash[:notice] = "Client #{@client.name} created successfully. The password for client portal is #{temporary_password}"
 
       @activity_log = Log.new(detail: "New client: #{@client.id}-#{@client.name} created.")
       @activity_log.user = current_user

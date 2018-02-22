@@ -8,12 +8,18 @@
 
 client = Client.new(name: 'ABC Industries', father_name: 'John Doe', phone: '00123456789', email: 'abc@example.com', date_of_birth: '7/8/1992', address: 'Mulholland Drive, Hollywood', city: 'Los Angeles', pin_zip: '90077', state: 'California', country: "US", notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
 client.save
+customer = Customer.new(email: client.email, password: 'foobar', password_confirmation: 'foobar', client_id: client.id)
+customer.save
 
 client = Client.new(name: 'Antares Corp.', father_name: 'Tricia McMilan', phone: '9876543210', email: 'antares@example.com', date_of_birth: '7/8/1992', address: 'Santa Monica', city: 'Los Angeles', pin_zip: '95321', state: 'California', country: "US", notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
 client.save
+customer = Customer.new(email: client.email, password: 'foobar', password_confirmation: 'foobar', client_id: client.id)
+customer.save
 
 client = Client.new(name: 'Betelgeuse Inc.', father_name: 'Arthur Dent', phone: '5683456789', email: 'betelgeuse@example.com', date_of_birth: '7/8/1992', address: 'Pacific Coast', city: 'Los Angeles', pin_zip: '90077', state: 'California', country: "US", notes: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
 client.save
+customer = Customer.new(email: client.email, password: 'foobar', password_confirmation: 'foobar', client_id: client.id)
+customer.save
 
 
 fee = Fee.new(details: 'Consultation', amount: 456.34, client_id: 1)

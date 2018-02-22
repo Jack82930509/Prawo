@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :customers
   devise_for :users
   root 'static_pages#index'
   get '/help', to: 'static_pages#help', as: :help
@@ -78,4 +79,21 @@ Rails.application.routes.draw do
   get '/administration/users/logs/:id',     to: 'administration#users_logs',      as: :admin_users_logs
 
   get '/administration/logs',               to: 'administration#logs',            as: :admin_logs
+
+
+  ##
+  ## CUSTOMERS
+  ##
+  get '/myportal/index',  to: 'my_portal#index', as: :my_portal_index
+  get '/myportal/fees',   to: 'my_portal#fees',  as: :my_portal_fees
+
+  get '/myportal/lawsuits/manage',      to: 'my_portal#lawsuits_manage',    as: :my_portal_lawsuits_manage
+  get '/myportal/lawsuits/details/:id', to: 'my_portal#lawsuits_details',   as: :my_portal_lawsuits_details
+
+  get '/myportal/documents/manage/:lawsuit_id', to: 'my_portal#documents_manage',   as: :my_portal_documents_manage
+  get '/myportal/documents/details/:id',        to: 'my_portal#documents_details',  as: :my_portal_documents_details
+
+  get '/myportal/updates/manage/:lawsuit_id', to: 'my_portal#updates_manage',   as: :my_portal_updates_manage
+  get '/myportal/updates/details/:id',        to: 'my_portal#updates_details',  as: :my_portal_updates_details
+
 end

@@ -1,0 +1,44 @@
+<% provide(:title, "View Lawsuits") %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">View Lawsuits</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover table-striped">
+          <thead>
+          <tr>
+            <th>Case Number</th>
+            <th>Case Type</th>
+            <th>Opposite Party</th>
+            <th>Court</th>
+            <th>Location</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @lawsuits.each do |lawsuit| %>
+            <tr>
+              <td><%= link_to lawsuit.case_number, lawsuit_details_path(lawsuit) %></td>
+              <td><%= lawsuit.case_type %></td>
+              <td><%= lawsuit.opposite_party %></td>
+              <td><%= lawsuit.court_name %></td>
+              <td><%= lawsuit.location %></td>
+              <td>
+                <%= link_to 'Details', my_portal_lawsuits_details_path(lawsuit), class: 'btn btn-sm btn-primary' %>
+                <%= link_to 'Documents', my_portal_documents_manage_path(lawsuit), class: 'btn btn-sm btn-success' %>
+                <%= link_to 'Updates', my_portal_updates_manage_path(lawsuit),  class: 'btn btn-sm btn-success' %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <hr />
+        <div class="flickr_pagination">
+          <%= will_paginate @lawsuits %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
