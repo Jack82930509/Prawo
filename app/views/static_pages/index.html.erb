@@ -5,11 +5,12 @@
     </div>
 
     <hr />
-
+    <h3 class="text-center">Law Firm Management System</h3>
+    <hr />
     <p class="text-center">
       <% if !user_signed_in? && !customer_signed_in? %>
-        <%= link_to 'Staff Login', new_user_session_path, class: 'btn btn-lg btn-primary' %>
-        <%= link_to 'Client Login', new_customer_session_path, class: 'btn btn-lg btn-primary' %>
+        <%= link_to 'Staff Login', new_user_session_path, class: 'btn btn-lg btn-default' %>
+        <%= link_to 'Client Login', new_customer_session_path, class: 'btn btn-lg btn-default' %>
       <% end %>
     </p>
   </div>
