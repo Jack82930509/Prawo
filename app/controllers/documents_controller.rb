@@ -23,6 +23,7 @@ class DocumentsController < ApplicationController
 
   def create
     @lawsuit = Lawsuit.find(params[:lawsuit_id])
+    @document.lawsuit = @lawsuit
 
     @document = Document.new(document_params)
 
