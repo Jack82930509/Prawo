@@ -25,7 +25,10 @@ gem 'country_select'
 gem 'will_paginate', '~> 3.1.0'
 gem 'devise', '4.4.1'
 gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'simple_form'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

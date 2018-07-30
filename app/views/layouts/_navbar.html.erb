@@ -22,6 +22,7 @@
           <li><%= link_to 'Разходи', fees_index_path %></li>
           <li><%= link_to 'Документи', documents_index_path %></li>
           <li><%= link_to 'Промени', updates_index_path %></li>
+          <li><%= link_to 'Календар', help_path %></li>
 
           <% if current_user.admin? %>
             <li><%= link_to 'Потребители', admin_users_index_path %></li>
@@ -39,7 +40,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Помощ', help_path %></li>
+        <li><%= link_to 'Календар', help_path %></li>
 
         <% if !user_signed_in? && !customer_signed_in? %>
 

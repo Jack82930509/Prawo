@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :customers
   devise_for :users
+  resources :events
   root 'static_pages#index'
   get '/help', to: 'static_pages#help', as: :help
 
